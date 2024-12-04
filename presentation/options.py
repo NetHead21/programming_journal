@@ -18,10 +18,8 @@ class Option:
         data = self.prep_call() if self.prep_call else None
         success, result = self.command.execute(data) if data else self.command.execute()
 
-        if success and isinstance(result, str):
+        if success:
             print(self.success_message.format(result=result))
-        else:
-            print_results(result)
 
     def __str__(self):
         return self.name
